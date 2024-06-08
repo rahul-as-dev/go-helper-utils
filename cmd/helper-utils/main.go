@@ -8,5 +8,6 @@ import (
 
 func main() {
 	fmt.Printf("Hello World\n")
-	utils.ConvertToBits()
+	utils.ConvertIntToBits()
+	utils.ConnvertBitsToInt()
 }
