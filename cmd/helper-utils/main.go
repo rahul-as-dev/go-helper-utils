@@ -8,6 +8,10 @@ import (
 
 func main() {
 	fmt.Printf("Hello World\n")
-	utils.ConvertIntToBits()
-	utils.ConnvertBitsToInt()
+	//utils.ConvertIntToBits()
+	//utils.ConvertBitsToInt()
+	tree := utils.NewBinaryTree(10)
+	tree.Left = utils.NewBinaryTree(5)
+	tree.Right = utils.NewBinaryTree(15)
+	fmt.Println(tree.NodeCount())
 }

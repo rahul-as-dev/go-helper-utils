@@ -13,7 +13,7 @@ func ConvertIntToBits() string {
 	return binaryString
 }
 
-func ConnvertBitsToInt() int64 {
+func ConvertBitsToInt() int64 {
 	bitStr := "111000"
 	num, err := strconv.ParseInt(bitStr, 2, 64)
 	if err != nil {
