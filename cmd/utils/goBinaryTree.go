@@ -37,49 +37,49 @@ func (t *BinaryTree[T]) NodeCount() int {
 	return 1 + t.Left.NodeCount() + t.Right.NodeCount()
 }
 
-func (t *BinaryTree[T]) inOrder(f func(T)) {
+func (t *BinaryTree[T]) InOrder(f func(T)) {
 	if t == nil {
 		return
 	}
-	t.Left.inOrder(f)
+	t.Left.InOrder(f)
 	f(t.Value)
-	t.Right.inOrder(f)
+	t.Right.InOrder(f)
 }
-func (t *BinaryTree[T]) preOrder(f func(T)) {
+func (t *BinaryTree[T]) PreOrder(f func(T)) {
 	if t == nil {
 		return
 	}
 	f(t.Value)
-	t.Left.preOrder(f)
-	t.Right.preOrder(f)
+	t.Left.PreOrder(f)
+	t.Right.PreOrder(f)
 }
-func (t *BinaryTree[T]) postOrder(f func(T)) {
+func (t *BinaryTree[T]) PostOrder(f func(T)) {
 	if t == nil {
 		return
 	}
-	t.Left.postOrder(f)
-	t.Right.postOrder(f)
+	t.Left.PostOrder(f)
+	t.Right.PostOrder(f)
 	f(t.Value)
 }
 
-func (t *BinaryTree[T]) search(val T) bool {
+func (t *BinaryTree[T]) Search(val T) bool {
 	if t == nil {
 		return false
 	}
 	if val == t.Value {
 		return true
 	}
-	return t.Left.search(val) || t.Right.search(val)
+	return t.Left.Search(val) || t.Right.Search(val)
 }
 
-func (t *BinaryTree[T]) searchByComparator(val T, compare func(t, val T) bool) bool {
+func (t *BinaryTree[T]) SearchByComparator(val T, compare func(t, val T) bool) bool {
 	if t == nil {
 		return false
 	}
 	if compare(t.Value, val) {
 		return true
 	}
-	return t.Left.search(val) || t.Right.search(val)
+	return t.Left.SearchByComparator(val, compare) || t.Right.SearchByComparator(val, compare)
 }
 
 func walking[T comparable](t *BinaryTree[T], ch chan T) {
