@@ -15,14 +15,14 @@ func Decrypt(encryptedToken, ivBase64, keyBase64 string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("failed to decode encrypted token: %v", err)
 	}
-	iv, err := base64.StdEncoding.DecodeString(ivBase64)
-	if err != nil {
-		return "", fmt.Errorf("failed to decode IV: %v", err)
-	}
-	key, err := base64.StdEncoding.DecodeString(keyBase64)
-	if err != nil {
-		return "", fmt.Errorf("failed to decode key: %v", err)
-	}
+	//iv, err := base64.StdEncoding.DecodeString(ivBase64)
+	//if err != nil {
+	//	return "", fmt.Errorf("failed to decode IV: %v", err)
+	//}
+	//key, err := base64.StdEncoding.DecodeString(keyBase64)
+	//if err != nil {
+	//	return "", fmt.Errorf("failed to decode key: %v", err)
+	//}
 	iv := []byte(ivBase64)
 	key := []byte(keyBase64)
 
