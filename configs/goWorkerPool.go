@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"sync"
-	"time"
 )
 
 // Job represents the job to be run
@@ -121,27 +120,27 @@ func (d *Dispatcher) Stop() {
 	}
 }
 
-func main() {
-	const numWorkers = 3
-	const numJobs = 5
+// func main() {
+// 	const numWorkers = 3
+// 	const numJobs = 5
 
-	dispatcher := NewDispatcher(numWorkers)
-	dispatcher.Run()
+// 	dispatcher := NewDispatcher(numWorkers)
+// 	dispatcher.Run()
 
-	for i := 0; i < numJobs; i++ {
-		job := Job{
-			ID:      i + 1,
-			Payload: fmt.Sprintf("Job payload %d", i+1),
-		}
-		dispatcher.JobQueue <- job
-	}
+// 	for i := 0; i < numJobs; i++ {
+// 		job := Job{
+// 			ID:      i + 1,
+// 			Payload: fmt.Sprintf("Job payload %d", i+1),
+// 		}
+// 		dispatcher.JobQueue <- job
+// 	}
 
-	// Allow some time for jobs to be processed
-	time.Sleep(2 * time.Second)
+// 	// Allow some time for jobs to be processed
+// 	time.Sleep(2 * time.Second)
 
-	// Stop the dispatcher and workers
-	dispatcher.Stop()
+// 	// Stop the dispatcher and workers
+// 	dispatcher.Stop()
 
-	// Allow some time for workers to stop gracefully
-	time.Sleep(1 * time.Second)
-}
+// 	// Allow some time for workers to stop gracefully
+// 	time.Sleep(1 * time.Second)
+// }
